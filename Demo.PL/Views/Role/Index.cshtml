@@ -1,0 +1,61 @@
+﻿@model IEnumerable<RoleViewModel>
+@{
+    ViewData["Title"] = "All Role";
+}
+
+@if(TempData["Message"] is not null)
+{
+<div id="MessageDiv" class="alert alert-success">
+    @TempData["Message"]
+</div>    
+}
+
+<a asp-action="Create" class="btn btn-success mb-3">Create New Role</a>
+
+@if (Model.Count() > 0)
+{
+    
+    <h1>All Employees</h1>
+    <div class="m-2">
+        <form asp-action="Index" class="row offset-2" >
+            <div class="col-8">
+                <input type="text" placeholder="Role's Name" class="form-control" name="searchString" />
+            </div>
+            <div class="col-4">
+                <input type="submit" value="Search" class="btn btn-outline-info" />
+            </div>
+        </form>
+    </div>
+    <table class="table table-striped table-hover table-bordered  mt-3">
+        <thead>
+            <tr class="text-center align-baseline">
+
+                <th scope="col">@Html.DisplayNameFor(R => R.Id)</th>
+                <th scope="col">@Html.DisplayNameFor(R => R.RoleName)</th>
+                <th scope="col">Details</th>
+                <th scope="col">Update</th>
+                <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var role in Model)
+            {
+                <tr class="text-center align-baseline">
+                    <td>@role.Id</td>
+                    <td>@role.RoleName</td>
+                    <partial name="_ButtonPartialView" model="role.Id.ToString()"/>
+        
+                </tr>
+            }
+
+
+        </tbody>
+    </table>
+}
+else
+{
+    <div>
+        <h3 class="mt-5 alert alert-warning">There is No Roles</h3>
+    </div>
+}

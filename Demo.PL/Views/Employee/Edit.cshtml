@@ -1,0 +1,18 @@
+﻿@model EmployeeViewModel
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit @Model.Name</h1>
+<div class="form-group">
+    @if (@Model.ImageName is not null)
+    {
+        <img src="~/Files/Images/@Model.ImageName" alt="@Model.ImageName Image" height="150" width="150" />
+    }
+</div>
+<div asp-validation-summary="All"></div>
+<form asp-action="Edit" class="mb-3" enctype="multipart/form-data">
+    <partial name="PartialView/CreateEditPartialView" />
+    <input type="submit" value="Save" class="btn btn-primary " /> |
+    <a asp-action="Index" class="btn btn-light">Back To List</a>
+</form>

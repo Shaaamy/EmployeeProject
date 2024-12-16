@@ -1,0 +1,27 @@
+# Build folders
+bin/
+obj/
+
+# User-specific files
+*.user
+*.swp
+
+# Logs and temporary files
+*.log
+*.tmp
+
+# Configuration files
+appsettings*.json
+secrets.json
+
+# Visual Studio specific
+.vs/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# OS-specific
+.DS_Store
+Thumbs.db
